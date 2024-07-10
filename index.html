@@ -129,7 +129,7 @@
             var loader = document.getElementById("loader");
             submitButton.disabled = true; 
             loader.style.display = "block"; 
-            fetch("https://script.google.com/u/0/home/projects/1TyRPDXFP2AczOLARf5439_jfBkE4-r9j6obFw8KLlqKBBCJXLRbnx-R1/edit", {
+            fetch("https://script.google.com/macros/s/AKfycbz4OKn2C2l0QOMjxCSsHl8US02ILNSfqawbZh218YyZgXVwHE-o2YdJrgPDfPExSLLe5w/exec", {
                 method: "POST",
                 body: formData
             })
@@ -137,7 +137,10 @@
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-                window.location.href = "thanks.html";
+                return response.text();
+            })
+            .then(data => {
+                alert(data);
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -150,4 +153,3 @@
     </script>
 </body>
 </html>
-
